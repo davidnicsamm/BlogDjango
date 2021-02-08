@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es-AR">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>
+        {% block title %}
+        <!--  Título de cada página  -->
+        {% endblock %}
+    </title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+
+</head>
+
+<body>
+    <!-- Cabecera -->
+    <header>
+        <div id="logotipo">
+            <!-- Logotipo django -->
+            <img src="{% static 'imagenes/logo.png' %}" />
+            <h1>Blog con Django</h1>            
+        </div>
+    </header>
+
+    <!-- Menú -->
+    <nav>
+        <ul>
+            <li><a href="{% url 'index'%}">Inicio</a></li>
+            <li><a href="{% url 'about'%}">Sobre nosotros</a></li>
+            
+
+
+            
+        </ul>
+    </nav>
+    <!-- Para efecto 3D -->
+    <div class="barra">
+        <span class="esquina-izquierda"></span>
+        <span class="relleno-barra"></span>
+        <span class="esquina-derecha"></span>
+    </div>
+
+    <div id="content">
+        <div class="box">
+           
+            {% block content %}
+
+            <!--  Código que viene de templates  -->
+                <strong>Contenido en layout.html</strong>
+            {% endblock %}
+        </div>
+        
+    </div>
+    <footer>
+        "Master en Python 3"
+    </footer>
+
+</body>
+
+
+</html>
